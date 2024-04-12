@@ -1,0 +1,6 @@
+#containerPrincipal div:hover{
+
+    width: 42%;
+    transition: width 1s ease;
+
+}
