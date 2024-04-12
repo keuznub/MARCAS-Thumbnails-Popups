@@ -1,33 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
-    /*Hecho gracias a chatgpt copiando y viendo como se hace, es más, tuve que 
-  corregirlo manualmente poniendo window.scrollY en el tooltip.style.top sino iba mal*/
-    var imagenesContainer = document.getElementById("myCarousel2")
-    var imagenes = imagenesContainer.querySelectorAll(".tooltip-img");
-  
-    imagenes.forEach(function (img) {
-      var tooltip = document.createElement("div");
-      var nombreImagen = img.getAttribute("src");
-      var segments = nombreImagen.split("/");
-      var fileNameWithExtension = segments[segments.length - 1];
-      var nombrePiloto = fileNameWithExtension.split(".")[0];
-      nombrePiloto = nombrePiloto.charAt(0).toUpperCase() + nombrePiloto.slice(1);
-  
-      tooltip.id = "tooltip";
-      tooltip.innerText = "Haz click para ir a los resultados de " + nombrePiloto;
-      document.body.appendChild(tooltip);
-  
-      img.addEventListener("mouseover", function (event) {
-        tooltip.style.display = "block";
-      });
-  
-      img.addEventListener("mouseout", function (event) {
-        tooltip.style.display = "none";
-      });
-  
-      img.addEventListener("mousemove", function (event) {
-        tooltip.style.top = event.clientY + window.scrollY + 10 + "px";
-        tooltip.style.left = event.clientX + 10 + "px";
-      });
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementsByTagName("img");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    var arrrayImg = Array.from(img)
+
+    arrrayImg.forEach(function (imagen) {
+        imagen.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
     });
-  
-  });
+
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+});
+
+
+
