@@ -25,3 +25,35 @@
         transition: max-height 1s ease;
     }
 }
+
+.iconosCorazon{
+   border: 1px solid rgba(184, 184, 184, 0.521);
+   border-radius: 17px;
+   padding: 5px;
+   padding-top: 7px;
+}
+
+
+
+.iconosCorazon:hover{
+    background-color: rgba(224, 122, 122, 0.397);
+}
+
+
+@media (max-width: 568px){
+    .iconosCorazon{
+       width: 30px;
+    }
+
+}
+.row{
+    text-align: center;
+}
+
+.modal-footer *{
+    margin: auto;
+}
+
+#megustaText{
+    display: none;
+}

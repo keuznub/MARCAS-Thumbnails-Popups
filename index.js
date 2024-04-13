@@ -3,29 +3,43 @@ document.addEventListener("DOMContentLoaded", function () {
     //Pop-up
     var imagenCargar = document.getElementById("imagenCargar");
     var titulo = document.getElementById("staticBackdropLabel");
-    var imagenes = document.getElementsByTagName("img");
+    var imagenes = document.querySelectorAll("a img")
     var imagenesArray = Array.from(imagenes);
 
     imagenesArray.forEach(function(imagen) {   
+        imagen.setAttribute("megusta", "false");
         imagen.addEventListener("click", (evento)=>{ 
             imagenCargar.src = evento.target.src;
             imagenCargar.alt = evento.target.alt;
             titulo.innerHTML = evento.target.alt;
+            if(evento.target.megusta == "true"){
+                var megustaText = document.getElementById("megustaText");
+                megustaText.style.display = "block";
+            }
         })
-
     });
 
 });
 
 
 const corazonSprite = [
-    "Imagenes/corazonVacio.png",
-    "Imagenes/corazonLlenoPlus.png",
-    "Imagenes/corazonLleno.png"
+    "Imagenes/corazon0.png",
+    "Imagenes/corazon1.png",
+    "Imagenes/corazon2.png",
+    "Imagenes/corazon3.png",
+    "Imagenes/corazon4.png",
+    "Imagenes/corazon5.png",
+    "Imagenes/corazon6.png",
+    "Imagenes/corazon6.png",
+    "Imagenes/corazon6.png",
+    "Imagenes/corazon4.png"
 ]  
 
 var iconosCorazon = document.getElementsByClassName("iconosCorazon");
 var iconosCorazonArray = Array.from(iconosCorazon);
+var imagenes = document.querySelectorAll("a img")
+var imagenesArray = Array.from(imagenes);
+
 
 iconosCorazonArray.forEach(function(ico){
     ico.src = corazonSprite[0];
@@ -48,7 +62,8 @@ function cambiarIco(ico){
             if (contador >= corazonSprite.length-1) { 
                 clearInterval(intervalo);
             }
-        }, 100); 
+        }, 20); 
+        
     }else if(rutaRelativaIco == rutaRelativaCorazonLast){
         ico.src = corazonSprite[0];
     }
