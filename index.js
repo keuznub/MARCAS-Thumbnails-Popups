@@ -36,8 +36,10 @@ iconosCorazonArray.forEach(function(ico){
 
 function cambiarIco(ico){
     let rutaRelativaIco = obtenerRutaRelativa(ico.src);
-    let rutaRelativaCorazon0 = obtenerRutaRelativa(corazonSprite[0]);
-    if(rutaRelativaIco == rutaRelativaCorazon0){
+    let rutaRelativaCorazonFirst = obtenerRutaRelativa(corazonSprite[0]);
+    let rutaRelativaCorazonLast = obtenerRutaRelativa(corazonSprite[corazonSprite.length-1]);
+
+    if(rutaRelativaIco == rutaRelativaCorazonFirst){
         let contador = 0; 
         let intervalo = setInterval(() => {
             contador++; 
@@ -46,7 +48,9 @@ function cambiarIco(ico){
             if (contador >= corazonSprite.length-1) { 
                 clearInterval(intervalo);
             }
-        }, 60); 
+        }, 100); 
+    }else if(rutaRelativaIco == rutaRelativaCorazonLast){
+        ico.src = corazonSprite[0];
     }
 }
 
