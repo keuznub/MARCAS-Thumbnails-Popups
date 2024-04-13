@@ -1,2 +1,27 @@
+#containerPrincipal > div{
+    margin-bottom: 2em;
+
+}
+
+.thumbnail-item{
+    border: 1px solid black;
+}
 
 
+.card{
+    ul{
+        max-height: 0;
+        overflow: hidden;
+    }
+    border-color: rgba(128, 128, 128, 0.050);
+}
+
+.card:hover{
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+    ul{
+        display: block;
+        max-height: 50px; 
+        transition: max-height 1s ease;
+    }
+}
